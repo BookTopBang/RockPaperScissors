@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 .vscode/
 .dist/
+test/
+app/static/
+app/templates/
