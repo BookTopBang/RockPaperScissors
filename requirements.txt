@@ -1,0 +1,3 @@
+Python==3.8.5
+Flask==1.1.2
+pytest==6.1.1

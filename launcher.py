@@ -1,5 +1,4 @@
-def main():
-    print('Hello, World!')
+from app.run import main
 
 
 if __name__ == '__main__':
