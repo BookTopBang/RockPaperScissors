@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 
 app = Flask(__name__)
@@ -14,6 +15,18 @@ def main():
 
     text = "GoodBye, World!"
     return text
+
+
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+    """
+    https://127.0.0.1:5000/hello/<name> 로 접근하면 
+    templates를 활용한 index.html을 확인할 수 있다.
+    """
+    # render_template은 templates/를 기본 경로로 갖는다.
+    html = 'index.html'
+    return render_template(html, name=name)
 
 
 app.run(debug=True)
