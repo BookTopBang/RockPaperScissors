@@ -43,6 +43,6 @@ launcher.py를 실행하면 app/run.py의 main 함수를 호출하게 됩니다.
 접속 주소는 아래와 같습니다. 아래의 주소를 통해 index.html로 이동합니다. 
 
 ```shell
-<http://127.0.0.1:5000/hello/>
+< (http://127.0.0.1:5000/hello/) >
 ```
 
