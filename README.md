@@ -15,7 +15,7 @@ $ python3 -m venv venv
 가상환경을 활성화합니다.
 
 ```shell
-$ . venv/bin/activate
+> venv\Scripts\activate
 ```
 
 ## Setup
@@ -40,9 +40,11 @@ launcher.py를 실행하면 app/run.py의 main 함수를 호출하게 됩니다.
 
 ## Link
 
-접속 주소는 아래와 같습니다. 아래의 주소를 통해 index.html로 이동합니다. 
+접속 주소는 아래와 같습니다.   
+http://127.0.0.1:5000/hello/  
 
-```shell
-< (http://127.0.0.1:5000/hello/) >
-```
+주소에서 hello/ 뒤에 단어를 입력하면 단어가 반영된 페이지 문구를 볼 수 있습니다.
+
+예시 :  http://127.0.0.1:5000/hello/DSC
+
 
