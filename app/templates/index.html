@@ -1,7 +1,18 @@
 <!doctype html>
-<title>RPS Project</title>
-{% if name %}
+<head>
+  <title>RPS Project</title>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+  h1 { font-family: 'Nanum Pen Script', cursive; }
+    </style>
+</head>
+<body>
+  {% if name %}
   <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+  {% else %}
+  <h1> Hello, World!</h1>
+  {% endif %}
+  <p>
+    Project Ongoing...<br>
+    See you 20/12/25!
+  </p>
+</body>
