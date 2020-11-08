@@ -3,13 +3,8 @@
 
 <head>
     <title>RPS Project</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
-        h1 {
-            font-family: 'Nanum Pen Script', cursive;
-        }
-    </style>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
@@ -22,11 +17,14 @@
         Project Ongoing...<br>
         See you 20/12/25!
     </p>
+
     <!--웹캠 연결-->
-    <video autoplay playsinline></video>
-    <script type="text/javascript" 
-    src="{{ url_for('static', filename ='js/main.js') }}">
-    </script>
+    <div class="videobox">
+        <video autoplay playsinline></video>
+        <script type="text/javascript" 
+                src="{{ url_for('static', filename='js/main.js') }}">
+        </script>
+    </div>
 </body>
 
 </html>

@@ -1,1 +1,12 @@
-/*거북이 부탁해요!*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+h1 {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.videobox {
+    border: 5px solid black;
+    border-radius: 10px; 
+    overflow: hidden;
+    background-color: black;
+}
