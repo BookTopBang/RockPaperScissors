@@ -1,18 +1,32 @@
 <!doctype html>
+<html>
+
 <head>
-  <title>RPS Project</title>
-  <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-  h1 { font-family: 'Nanum Pen Script', cursive; }
+    <title>RPS Project</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+        h1 {
+            font-family: 'Nanum Pen Script', cursive;
+        }
     </style>
 </head>
+
 <body>
-  {% if name %}
-  <h1>Hello {{ name }}!</h1>
-  {% else %}
-  <h1> Hello, World!</h1>
-  {% endif %}
-  <p>
-    Project Ongoing...<br>
-    See you 20/12/25!
-  </p>
+    {% if name %}
+    <h1>Hello {{ name }}!</h1>
+    {% else %}
+    <h1> Hello, World!</h1>
+    {% endif %}
+    <p>
+        Project Ongoing...<br>
+        See you 20/12/25!
+    </p>
+    <!--웹캠 연결-->
+    <video autoplay playsinline></video>
+    <script type="text/javascript" 
+    src="{{ url_for('static', filename ='js/main.js') }}">
+    </script>
 </body>
+
+</html>
