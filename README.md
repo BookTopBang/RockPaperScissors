@@ -47,4 +47,11 @@ http://127.0.0.1:5000/hello/
 
 예시 :  http://127.0.0.1:5000/hello/DSC
 
+## Example
+
+Webcam을 연결한 모습은 아래와 같습니다.
+
+![example_webcam](https://user-images.githubusercontent.com/65553480/98466960-1e6cbe00-2216-11eb-807b-218be534a5b0.png)
+
+
 
