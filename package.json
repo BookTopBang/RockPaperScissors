@@ -1,0 +1,14 @@
+{
+  "name": "yarn",
+  "version": "1.0.0",
+  "main": "launcher.py",
+  "repository": "https://github.com/TurtleBurney/RockPaperScissors.git",
+  "author": "handal95 <45425838+handal95@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@tensorflow-models/handpose": "^0.0.6",
+    "@tensorflow/tfjs-backend-webgl": "^2.7.0",
+    "@tensorflow/tfjs-converter": "^2.7.0",
+    "@tensorflow/tfjs-core": "^2.7.0"
+  }
+}
