@@ -26,8 +26,9 @@
 
     <!--웹캠 연결-->
     <div class="videobox">
-        <video id = "video_id" autoplay playsinline></video>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <video id="my_video" width="800" height="600" autoplay></video>
+        <canvas id="my_canvas" width="800" height="600"></canvas>
+        <script type="text/javascript" src="../static/js/main.js"></script>
     </div>
 </body>
 
