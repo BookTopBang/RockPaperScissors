@@ -4,9 +4,13 @@ h1 {
     font-family: 'Nanum Pen Script', cursive;
 }
 
-.videobox {
+#my_canvas {
     border: 5px solid black;
-    border-radius: 10px; 
+    border-radius: 20px; 
     overflow: hidden;
     background-color: black;
+}
+
+#my_video {
+    visibility: hidden;
 }
