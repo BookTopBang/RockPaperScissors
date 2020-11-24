@@ -5,6 +5,7 @@ let fingerLookupIndices = {
     ringFinger: [0, 13, 14, 15, 16],
     pinky: [0, 17, 18, 19, 20]
 };
+const MODE = document.getElementById('mode').innerText
 
 async function main() {
     // Run Tensorflow-WebGL
@@ -38,7 +39,15 @@ const landmarksRealTime = async (video, canvas) => {
     // load handpose estimation model from tensorflow-models/handpose
     const model = await handpose.load();
     context = canvas.getContext('2d');
-    let handshape = document.getElementById('handshape')
+
+    let fingerTag = Array();
+    if (MODE == 'Debug'){
+        fingerTag[0] = document.getElementById('thumb')
+        fingerTag[1] = document.getElementById('index')
+        fingerTag[2] = document.getElementById('middle')
+        fingerTag[3] = document.getElementById('ring')
+        fingerTag[4] = document.getElementById('pinky')
+    }
     
     frameLandmarks();
     
@@ -65,13 +74,30 @@ const landmarksRealTime = async (video, canvas) => {
             var middle = getDistance(keypoints[0], keypoints[12])
             var ring = getDistance(keypoints[0], keypoints[16])
             var pinky = getDistance(keypoints[0], keypoints[20])
-            
-            if(thumb && index && middle && ring && pinky){
+            var pivot = getDistance(keypoints[0], keypoints[9])
+
+            var thumbFold = (thumb/pivot) < 1.2 
+            var indexFold = (index/pivot) < 1.3 
+            var middleFold = (middle/pivot) < 1.3
+            var ringFold = (ring/pivot) < 1.3
+            var pinkyFold = (pinky/pivot) < 1.3 
+
+            if (MODE == 'Debug'){
+                fingerTag[0].textContent = `엄지 : ${thumbFold} / ${thumb}`
+                fingerTag[1].textContent = `검지 : ${indexFold} / ${index}` 
+                fingerTag[2].textContent = `중지 : ${middleFold} / ${middle}` 
+                fingerTag[3].textContent = `약지 : ${ringFold} / ${ring}` 
+                fingerTag[4].textContent = `소지 : ${pinkyFold} / ${pinky}`
+            }
+
+            // Handshape to string
+            if(thumbFold && indexFold && middleFold && ringFold && pinkyFold){
                 handshape.textContent = '주먹'
-            }else if((!thumb && !index && middle && ring && pinky) ||
-                     (thumb && !index && !middle && ring && pinky)){
-                        handshape.textContent = '가위'
-            }else if(!thumb && !index && !middle && !ring && !pinky){
+            }else if(
+                ((!thumbFold && !indexFold &&  middleFold) ||
+                 ( thumbFold && !indexFold && !middleFold)) && ringFold && pinkyFold){
+                handshape.textContent = '가위'
+            }else if(!thumbFold && !indexFold && !middleFold && !ringFold && !pinkyFold){
                 handshape.textContent = '보'
             }else{
                 handshape.textContent = '??'
@@ -138,6 +164,5 @@ function getDistance(pointA, pointB){
     let powered = Math.pow(ax - bx, 2) + Math.pow(ay - by, 2) + Math.pow(az - bz, 2);
     let distance = Math.sqrt(powered)
 
-    var is_fold = distance < 130
-    return is_fold
+    return distance
 }

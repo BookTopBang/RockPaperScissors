@@ -22,17 +22,60 @@
     </p>
     <div>
         <div>당신의 선택은 : </div>
-        <div id="handshape"> (로딩중) </div>
+        <div id="hands"> 
+            <div id="handshape">(로딩중)</div>
+        </div>
+        <div id="mode" value=mode>
+            {% if mode == "debug" %}
+            Debug
+            {% endif %}
+        </div>
+        {% if mode == "debug" %}
+            <div id="thumb">엄지</div>
+            <div id="index">검지</div>
+            <div id="middle">중지</div>
+            <div id="ring">약지</div>
+            <div id="pinky">소지</div>
+        {% endif %}
     </div>
     <script type="text/javascript">
-        $("#resultbox").on("propertychange change keyup paste input", () => {
+        $("#handshape").on("propertychange change keyup paste input", () => {
             var currentVal = $(this).val();
-            if(currentVal == oldVal) {
-                return;
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
             }
-            oldVal = currentVal;
         });
-    </script>
+        $("#thumb").on("propertychange change keyup paste input", () => {
+            var currentVal = $(this).val();
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
+            }
+        });
+        $("#index").on("propertychange change keyup paste input", () => {
+            var currentVal = $(this).val();
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
+            }
+        });
+        $("#middle").on("propertychange change keyup paste input", () => {
+            var currentVal = $(this).val();
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
+            }
+        });
+        $("#ring").on("propertychange change keyup paste input", () => {
+            var currentVal = $(this).val();
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
+            }
+        });
+        $("#pinky").on("propertychange change keyup paste input", () => {
+            var currentVal = $(this).val();
+            if(currentVal != oldVal) {
+                oldVal = currentVal;
+            }
+        });
+        </script>
 
     <div class="videobox">
         <canvas id="my_canvas"></canvas>
