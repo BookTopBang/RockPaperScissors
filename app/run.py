@@ -16,4 +16,4 @@ def main():
     html = 'index.html'
     return render_template(html)
 
-app.run(debug=True)
+app.run(host = "0.0.0.0", port = 80, debug=True)
