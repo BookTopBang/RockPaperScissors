@@ -3,27 +3,27 @@
 
 <head>
     <title>RPS Project</title>
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Require the peer dependencies of handpose. -->
+    <script src="https://unpkg.com/@tensorflow/tfjs-core@2.1.0/dist/tf-core.js"></script>
+    <script src="https://unpkg.com/@tensorflow/tfjs-converter@2.1.0/dist/tf-converter.js"></script>
+    <!-- You must explicitly require a TF.js backend if you're not using the tfs union bundle. -->
+    <script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.1.0/dist/tf-backend-webgl.js"></script>
+    <!-- Alternatively you can use the WASM backend: <script src="https://unpkg.com/@tensorflow/tfjs-backend-wasm@2.1.0/dist/tf-backend-wasm.js"></script> -->
+    <script src="https://unpkg.com/@tensorflow-models/handpose@0.0.6/dist/handpose.js"></script>
 </head>
 
 <body>
-    {% if name %}
-    <h1>Hello {{ name }}!</h1>
-    {% else %}
     <h1> Hello, World!</h1>
-    {% endif %}
     <p>
         Project Ongoing...<br>
         See you 20/12/25!
     </p>
 
-    <!--웹캠 연결-->
     <div class="videobox">
-        <video id = "video_id" autoplay playsinline></video>
-        <script type="text/javascript" 
-                src="{{ url_for('static', filename='js/main.js') }}">
-        </script>
+        <canvas id="my_canvas"></canvas>
+        <video id="my_video" autoplay></video>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>
 </body>
 
