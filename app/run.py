@@ -27,4 +27,4 @@ def hello(name=None):
     html = 'index.html'
     return render_template(html, name=name)
 
-app.run(debug=True)
+app.run(host = "0.0.0.0", port = 80, debug=True)
