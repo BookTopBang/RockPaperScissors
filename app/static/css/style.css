@@ -14,3 +14,8 @@ h1 {
 #my_video {
     visibility: hidden;
 }
+
+#handshape {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 20pt;
+}

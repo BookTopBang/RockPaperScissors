@@ -6,7 +6,6 @@ let fingerLookupIndices = {
     pinky: [0, 17, 18, 19, 20]
 };
 
-
 async function main() {
     // Run Tensorflow-WebGL
     const backend = 'webgl'
@@ -39,8 +38,10 @@ const landmarksRealTime = async (video, canvas) => {
     // load handpose estimation model from tensorflow-models/handpose
     const model = await handpose.load();
     context = canvas.getContext('2d');
+    let handshape = document.getElementById('handshape')
     
     frameLandmarks();
+    
     async function frameLandmarks() {
         // Draw a current image frame
         context.drawImage(
@@ -57,7 +58,25 @@ const landmarksRealTime = async (video, canvas) => {
                 const [x, y, z] = keypoints[i];
                 drawPoint(x, y, 5);
             }
+
+            // temp code for estimate hand shape
+            var thumb = getDistance(keypoints[0], keypoints[4])
+            var index = getDistance(keypoints[0], keypoints[8])
+            var middle = getDistance(keypoints[0], keypoints[12])
+            var ring = getDistance(keypoints[0], keypoints[16])
+            var pinky = getDistance(keypoints[0], keypoints[20])
             
+            if(thumb && index && middle && ring && pinky){
+                handshape.textContent = '주먹'
+            }else if((!thumb && !index && middle && ring && pinky) ||
+                     (thumb && !index && !middle && ring && pinky)){
+                        handshape.textContent = '가위'
+            }else if(!thumb && !index && !middle && !ring && !pinky){
+                handshape.textContent = '보'
+            }else{
+                handshape.textContent = '??'
+            }
+
             // Draw a path between points
             const fingers = Object.keys(fingerLookupIndices);
             for (let i = 0; i < fingers.length; i++) {
@@ -111,3 +130,14 @@ async function setupCameraById(videoTag) {
 }
 
 main();
+
+
+function getDistance(pointA, pointB){
+    const [ax, ay, az] = pointA
+    const [bx, by, bz] = pointB
+    let powered = Math.pow(ax - bx, 2) + Math.pow(ay - by, 2) + Math.pow(az - bz, 2);
+    let distance = Math.sqrt(powered)
+
+    var is_fold = distance < 130
+    return is_fold
+}
