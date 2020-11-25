@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap');
 
 h1 {
     font-family: 'Goldman', cursive;
-    /*font-size: larger;*/
+    background-color: black;
+    color: white;
+    padding: 1%;
+    margin: 0px;
 }
-h2 {
-    font-family: 'Poppins', sans-serif;
+#titlebar{
+    color : black;
 }
 #my_canvas {
     border: 5px solid black;
@@ -18,6 +21,7 @@ h2 {
 
 #my_video {
     visibility: hidden;
+    vertical-align: middle;
     
 }
 
@@ -25,3 +29,4 @@ h2 {
     font-family: 'Nanum Pen Script', cursive;
     font-size: 20pt;
 }
+
