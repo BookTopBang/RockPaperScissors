@@ -16,31 +16,29 @@
 
 <body>    
     <div id = "titlebar">
-        <h1>DSC-UOS CV<br>RPS(RockPaperScissors)</h1>
+        <img src = " {{ url_for('static', filename='image/DSC_UOS.png') }} " width=180, height=125, style = "float:right" />
+        <h1>DSC-UOS CV<br>RPS(RockPaperScissors)</br></h1>
     </div>
-        <img src = " {{ url_for('static', filename='image/dsclogo.png') }} " width=150, height=90, style = "float:right" />
     <p>
         Project Ongoing...<br>
         See you Sprint 3!
     </p>
     
     <div>
-        <div>당신의 선택은 : </div>
+        <div>당신의 손 모양은 : </div>
         <div id="hands"> 
             <div id="handshape">(로딩중)</div>
         </div>
         <div id="mode" value=mode>
             {% if mode == "debug" %}
             Debug
+            <div id="thumb">엄지</div>
+            <div id="index">검지</div>
+            <div id="middle">중지</div>
+            <div id="ring">약지</div>
+            <div id="pinky">소지</div>
             {% endif %}
         </div>
-        {% if mode == "debug" %}
-        <div id="thumb">엄지</div>
-        <div id="index">검지</div>
-        <div id="middle">중지</div>
-        <div id="ring">약지</div>
-        <div id="pinky">소지</div>
-            {% endif %}
     </div>
     <script type="text/javascript">
         $("#handshape").on("propertychange change keyup paste input", () => {
