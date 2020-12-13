@@ -19,11 +19,6 @@
         <img src = " {{ url_for('static', filename='image/DSC_UOS.png') }} " width=180, height=125, style = "float:right" />
         <h1>DSC-UOS CV<br>RPS(RockPaperScissors)</br></h1>
     </div>
-    <p>
-        Project Ongoing...<br>
-        See you Sprint 3!
-    </p>
-    
     <div>
         <div>당신의 손 모양은 : </div>
         <div id="hands"> 
@@ -80,7 +75,10 @@
         </script>
 
     <div class="videobox">
-        <canvas id="my_canvas"></canvas>
+        <div class="video_layer">
+            <canvas id="my_canvas"></canvas>
+            <canvas id="opponent_canvas"></canvas>
+        </div>
         <video id="my_video" autoplay></video>
         <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>

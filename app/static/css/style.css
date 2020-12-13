@@ -8,21 +8,46 @@ h1 {
     padding: 1%;
     margin: 0px;
 }
+
 #titlebar{
     color : black;
 }
-#my_canvas {
+
+canvas {
     border: 5px solid black;
-    border-radius: 20px; 
+    border-radius: 5%; 
+
     overflow: hidden;
     background-color: black;
     vertical-align: middle;
+    
+}
+
+.video_layer {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    width: 95%;
+    height: 70%;
+    transform: translate(-50%, 0);
+}
+
+#my_canvas {
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+
+#opponent_canvas{
+    width: 49%;
+    height: 100%;
+    float: right;
 }
 
 #my_video {
+    display:inline-block;
     visibility: hidden;
     vertical-align: middle;
-    
 }
 
 #hands {
