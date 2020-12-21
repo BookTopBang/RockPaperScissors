@@ -99,7 +99,10 @@
         </script>
 
     <div class="videobox">
-        <canvas id="my_canvas"></canvas>
+        <div class="video_layer">
+            <canvas id="my_canvas"></canvas>
+            <canvas id="opponent_canvas"></canvas>
+        </div>
         <video id="my_video" autoplay></video>
         <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>
