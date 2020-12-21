@@ -23,7 +23,26 @@
         Project Ongoing...<br>
         See you Sprint 3!
     </p>
-    
+
+    <div class= "random_RPS">
+        <input class="random_button" onclick="button1_click();"
+           type="button"
+           value="Click Here!">
+        <script>
+        var rand = Math.random() * 30;
+        function button1_click() {
+            if (rand % 3 == 0){
+                document.write("가위");
+            } else if(rand % 3 == 1){
+                document.write("바위");
+            } else{
+                document.write("보");
+            }
+        }
+        </script>
+        
+        </div>
+
     <div>
         <div>당신의 손 모양은 : </div>
         <div id="hands"> 
@@ -84,6 +103,8 @@
         <video id="my_video" autoplay></video>
         <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>
+
+    
 </body>
 
 </html>
