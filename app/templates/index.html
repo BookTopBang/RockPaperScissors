@@ -29,19 +29,23 @@
            type="button"
            value="Click Here!">
         <script>
-        var rand = Math.random() * 30;
-        function button1_click() {
-            if (rand % 3 == 0){
-                document.write("가위");
-            } else if(rand % 3 == 1){
-                document.write("바위");
-            } else{
-                document.write("보");
+            
+            function button1_click() {
+                var canvas = document.getElementById('opponent_canvas');
+                var rand = Math.floor(Math.random() * 1000);
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = "white";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                var handposes = ['바위', '가위', '보']
+                var result = handposes[rand % 3];
+                
+                ctx.fillText(result, canvas.width/2 - 10, canvas.height/2); 
             }
-        }
+        
         </script>
         
-        </div>
+    </div>
 
     <div>
         <div>당신의 손 모양은 : </div>
@@ -96,7 +100,7 @@
                 oldVal = currentVal;
             }
         });
-        </script>
+    </script>
 
     <div class="videobox">
         <div class="video_layer">
@@ -106,8 +110,5 @@
         <video id="my_video" autoplay></video>
         <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>
-
-    
 </body>
-
 </html>
