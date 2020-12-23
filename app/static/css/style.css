@@ -55,3 +55,13 @@ canvas {
     font-size: 20pt;
 }
 
+.random_RPS{
+    margin: auto;
+    width: 10%;
+}
+
+.random_button{
+    padding: 5px;
+    width: 100%;
+    font-size: 18px;
+}

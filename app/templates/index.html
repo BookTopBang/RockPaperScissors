@@ -19,6 +19,34 @@
         <img src = " {{ url_for('static', filename='image/DSC_UOS.png') }} " width=180, height=125, style = "float:right" />
         <h1>DSC-UOS CV<br>RPS(RockPaperScissors)</br></h1>
     </div>
+    <p>
+        Project Ongoing...<br>
+        See you Sprint 3!
+    </p>
+
+    <div class= "random_RPS">
+        <input class="random_button" onclick="button1_click();"
+           type="button"
+           value="Click Here!">
+        <script>
+            
+            function button1_click() {
+                var canvas = document.getElementById('opponent_canvas');
+                var rand = Math.floor(Math.random() * 1000);
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = "white";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                var handposes = ['바위', '가위', '보']
+                var result = handposes[rand % 3];
+                
+                ctx.fillText(result, canvas.width/2 - 10, canvas.height/2); 
+            }
+        
+        </script>
+        
+    </div>
+
     <div>
         <div>당신의 손 모양은 : </div>
         <div id="hands"> 
@@ -72,7 +100,7 @@
                 oldVal = currentVal;
             }
         });
-        </script>
+    </script>
 
     <div class="videobox">
         <div class="video_layer">
@@ -83,5 +111,4 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/handpose.js') }}"></script>
     </div>
 </body>
-
 </html>
