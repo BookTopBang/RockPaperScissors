@@ -49,13 +49,26 @@ const landmarksRealTime = async (video, canvas) => {
         fingerTag[4] = document.getElementById('pinky')
     }
     
-    frameLandmarks();
+    const handpoints_index = [
+        'WRIST',
+        'THUMB_CMC', 'THUMB_MCP', 'THUMB_IP', 'THUMB_TIP',
+        'INDEX_MCP', 'INDEX_PIP', 'INDEX_DIP', 'INDEX_TIP',
+        'MIDDLE_MCP', 'MIDDLE_PIP', 'MIDDLE_DIP', 'MIDDEL_TIP',
+        'RING_MCP', 'RING_PIP', 'RING_DIP', 'RIND_TIP',
+        'PINKY_MCP', 'PINKY_PIP', 'PINKY_DIP', 'PINKY_TIP'
+    ]
+    let handpoints = [
+        handpoints_index,
+    ]
     
+    let csvContent = "data:text/csv;charset=utf-8,";
+    frameLandmarks();
     async function frameLandmarks() {
         // Draw a current image frame
         context.drawImage(
             video,
             0, 0, canvas.width, canvas.height);
+
 
         // Predict hand's position 
         const predictions = await model.estimateHands(video);
@@ -66,6 +79,19 @@ const landmarksRealTime = async (video, canvas) => {
             for (let i = 0; i < keypoints.length; i++) {
                 const [x, y, z] = keypoints[i];
                 drawPoint(x, y, 5);
+            }
+            var handpoint = keypoints.join(", ");
+            handpoints.push(`\r\n${handpoint}`);
+
+            console.log(handpoints.length)
+            if (handpoints.length % 1000 == 0){
+                csvContent += handpoints
+                var encodedUri = encodeURI(csvContent);
+
+                window.open(encodedUri);
+                handpoints = [
+                    handpoints_index,
+                ]
             }
 
             // temp code for estimate hand shape
